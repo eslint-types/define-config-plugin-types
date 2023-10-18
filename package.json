@@ -3,23 +3,43 @@
   "version": "1.0.0-alpha.0",
   "description": "Provides several plugin types for eslint-define-config",
   "scripts": {
-    "generate:plugin-dts": "tsx scripts/generate-plugin-dts.ts"
+    "clean": "rimraf node_modules",
+    "generate:plugin-dts": "tsx scripts/generate-plugin-dts.ts",
+    "format": "prettier --cache --write .",
+    "lint:fix": "eslint --cache --cache-strategy content --report-unused-disable-directives --fix .",
+    "lint": "eslint --cache --cache-strategy content --report-unused-disable-directives .",
+    "ts-check": "tsc",
+    "preflight": "pnpm install && run-s generate:plugin-dts format lint:fix ts-check"
   },
   "type": "module",
   "license": "MIT",
-  "packageManager": "pnpm@8.9.0",
+  "devDependencies": {
+    "@types/eslint": "~8.44.5",
+    "@types/json-schema": "~7.0.14",
+    "@types/node": "~20.8.7",
+    "@typescript-eslint/eslint-plugin": "~6.8.0",
+    "@typescript-eslint/parser": "~6.8.0",
+    "change-case": "~5.0.2",
+    "eslint": "~8.51.0",
+    "eslint-config-prettier": "~9.0.0",
+    "eslint-define-config": "~1.24.1",
+    "eslint-gitignore": "~0.1.0",
+    "eslint-plugin-prettier": "~5.0.1",
+    "eslint-plugin-unicorn": "~48.0.1",
+    "json-schema": "~0.4.0",
+    "json-schema-to-typescript": "~13.1.1",
+    "npm-run-all2": "~6.1.1",
+    "package-json-type": "~1.0.3",
+    "prettier": "~3.0.3",
+    "prettier-plugin-organize-imports": "~3.2.3",
+    "rimraf": "~5.0.5",
+    "tsx": "~3.14.0",
+    "typescript": "~5.2.2"
+  },
+  "packageManager": "pnpm@8.9.2",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0",
     "pnpm": ">= 8.6.0"
-  },
-  "devDependencies": {
-    "@types/json-schema": "~7.0.14",
-    "@types/node": "~20.8.6",
-    "change-case": "~5.0.2",
-    "json-schema": "~0.4.0",
-    "json-schema-to-typescript": "~13.1.1",
-    "tsx": "~3.14.0",
-    "typescript": "~5.2.2"
   }
 }

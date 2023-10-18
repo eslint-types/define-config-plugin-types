@@ -1,2 +1,1 @@
-
-export type DeprecationRuleOptions = []
+export type DeprecationRuleOptions = [];
