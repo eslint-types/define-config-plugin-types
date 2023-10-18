@@ -2,7 +2,9 @@
   "name": "define-config-plugin-types",
   "version": "1.0.0-alpha.0",
   "description": "Provides several plugin types for eslint-define-config",
-  "scripts": {},
+  "scripts": {
+    "generate:plugin-dts": "tsx scripts/generate-plugin-dts.ts"
+  },
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@8.9.0",
@@ -10,5 +12,10 @@
     "node": ">=18.0.0",
     "npm": ">=9.0.0",
     "pnpm": ">= 8.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "~20.8.6",
+    "tsx": "~3.14.0",
+    "typescript": "~5.2.2"
   }
 }
