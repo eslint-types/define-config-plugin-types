@@ -43,9 +43,15 @@ for (const workspace of workspaces) {
     continue;
   }
 
-  const pluginModule: ESLint.Plugin = await import(
+  const importedPluginModule:
+    | (ESLint.Plugin & { __esModule: true })
+    | { __esModule: undefined; default: ESLint.Plugin } = await import(
     join(pluginDirectory, pluginEntry)
   );
+
+  const pluginModule = importedPluginModule.__esModule
+    ? importedPluginModule
+    : importedPluginModule.default;
 
   const pluginConfigs = Object.keys(pluginModule.configs ?? {});
 
