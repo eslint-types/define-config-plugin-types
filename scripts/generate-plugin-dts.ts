@@ -37,12 +37,19 @@ for (const workspace of workspaces) {
   }
 
   const pluginName = workspace;
+  let pluginPrefix: string = pluginName;
+  if (dep.startsWith('@')) {
+    pluginPrefix = dep.split('/')[0]!;
+  } else if (dep.startsWith('eslint-plugin-')) {
+    pluginPrefix = dep.replace('eslint-plugin-', '');
+  }
 
   const pluginDirectory = join(workspaceDirectory, 'node_modules', dep);
   const pluginPackageJson: IPackageJson = await import(
     join(pluginDirectory, 'package.json')
   );
-  const pluginEntry = pluginPackageJson.main;
+  const pluginEntry: string | undefined =
+    pluginPackageJson.main ?? pluginPackageJson.exports?.['.']?.default;
 
   if (!pluginEntry) {
     console.warn(`No entry found for ${pluginName}`);
@@ -114,7 +121,7 @@ export type ${pascalCase(ruleName)}RuleOptions = [${options
      *
      * @see [${ruleName}](${documentation.url})
      */
-    "${pluginName}/${ruleName}": ${pascalCase(ruleName)}RuleOptions;`);
+    "${pluginPrefix}/${ruleName}": ${pascalCase(ruleName)}RuleOptions;`);
   }
 
   const hasPluginSettings = await stat(
@@ -131,12 +138,12 @@ ${hasPluginSettings ? `import type { Settings } "./settings";` : ''}
 declare module "eslint-define-config" {
   export interface CustomExtends {
     ${pluginConfigs
-      .map((config) => `"plugin:${pluginName}/${config}": void;`)
+      .map((config) => `"plugin:${pluginPrefix}/${config}": void;`)
       .join('\n')}
   }
 
   export interface CustomPlugins {
-    ${pluginName}: void;
+    "${pluginPrefix}": void;
   }
 
   export interface CustomRuleOptions {
