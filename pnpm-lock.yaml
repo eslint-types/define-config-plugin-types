@@ -90,6 +90,12 @@ importers:
         specifier: 46.8.2
         version: 46.8.2(eslint@8.51.0)
 
+  types/typescript-eslint:
+    devDependencies:
+      '@typescript-eslint/eslint-plugin':
+        specifier: 6.8.0
+        version: 6.8.0(@typescript-eslint/parser@6.8.0)(eslint@8.51.0)(typescript@5.2.2)
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
