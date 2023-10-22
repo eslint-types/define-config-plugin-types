@@ -78,4 +78,12 @@ module.exports = defineConfig({
     ],
     '@typescript-eslint/unbound-method': 'off',
   },
+  overrides: [
+    {
+      files: ['types/**/*.d.ts'],
+      rules: {
+        'unicorn/prevent-abbreviations': 'off',
+      },
+    },
+  ],
 });

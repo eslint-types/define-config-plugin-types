@@ -2,7 +2,7 @@ import { pascalCase } from 'change-case';
 import type { ESLint, Rule } from 'eslint';
 import type { JSONSchema4 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
-import { mkdir, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
 import type { IPackageJson } from 'package-json-type';
@@ -18,9 +18,15 @@ const workspaces = await readdir(workspaceRootDirectory, {
 for (const workspace of workspaces) {
   const workspaceDirectory = join(workspaceRootDirectory, workspace);
 
-  const packageJson: IPackageJson = await import(
+  const packageJson: IPackageJson | false = await import(
     join(workspaceDirectory, 'package.json')
-  );
+  ).catch(() => false);
+
+  if (!packageJson) {
+    console.warn(`No package.json found for ${workspace}`);
+    continue;
+  }
+
   const dep = Object.keys(packageJson.devDependencies ?? {}).find((dep) =>
     dep.includes(workspace),
   );
@@ -43,9 +49,15 @@ for (const workspace of workspaces) {
     continue;
   }
 
-  const pluginModule: ESLint.Plugin = await import(
+  const importedPluginModule:
+    | (ESLint.Plugin & { __esModule: true })
+    | { __esModule: undefined; default: ESLint.Plugin } = await import(
     join(pluginDirectory, pluginEntry)
   );
+
+  const pluginModule = importedPluginModule.__esModule
+    ? importedPluginModule
+    : importedPluginModule.default;
 
   const pluginConfigs = Object.keys(pluginModule.configs ?? {});
 
@@ -105,9 +117,16 @@ export type ${pascalCase(ruleName)}RuleOptions = [${options
     "${pluginName}/${ruleName}": ${pascalCase(ruleName)}RuleOptions;`);
   }
 
+  const hasPluginSettings = await stat(
+    join(workspaceDirectory, 'settings.d.ts'),
+  )
+    .then(() => true)
+    .catch(() => false);
+
   await writeFile(
     join(workspaceDirectory, 'index.d.ts'),
     `${ruleOptionImports.join('\n')}
+${hasPluginSettings ? `import type { Settings } "./settings";` : ''}
 
 declare module "eslint-define-config" {
   export interface CustomExtends {
@@ -122,6 +141,12 @@ declare module "eslint-define-config" {
 
   export interface CustomRuleOptions {
     ${ruleDeclarations.join('\n')}
+  }
+
+  ${
+    hasPluginSettings
+      ? 'export interface CustomSettings extends Settings {};'
+      : ''
   }
 }
 `,
