@@ -1,3 +1,5 @@
+import type { ParserOptions } from './parser-options';
+import type { Parsers } from './parsers';
 import type { AdjacentOverloadSignaturesRuleOptions } from './rules/adjacent-overload-signatures';
 import type { ArrayTypeRuleOptions } from './rules/array-type';
 import type { AwaitThenableRuleOptions } from './rules/await-thenable';
@@ -958,4 +960,8 @@ declare module 'eslint-define-config' {
      */
     '@typescript-eslint/unified-signatures': UnifiedSignaturesRuleOptions;
   }
+
+  export interface CustomParsers extends Parsers {}
+
+  export interface CustomParserOptions extends ParserOptions {}
 }
