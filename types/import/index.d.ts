@@ -43,6 +43,7 @@ import type { NoWebpackLoaderSyntaxRuleOptions } from './rules/no-webpack-loader
 import type { OrderRuleOptions } from './rules/order';
 import type { PreferDefaultExportRuleOptions } from './rules/prefer-default-export';
 import type { UnambiguousRuleOptions } from './rules/unambiguous';
+import type { Settings } from './settings';
 
 declare module 'eslint-define-config' {
   export interface CustomExtends {
@@ -332,4 +333,6 @@ declare module 'eslint-define-config' {
      */
     'import/imports-first': ImportsFirstRuleOptions;
   }
+
+  export interface CustomSettings extends Settings {}
 }
