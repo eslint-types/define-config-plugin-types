@@ -48,4 +48,4 @@ export type Schema0 =
       },
     ];
 
-export type ExtensionsRuleOptions = [Schema0?];
+export type ExtensionsRuleOptions = Schema0;

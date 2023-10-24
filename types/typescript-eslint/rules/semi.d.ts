@@ -16,4 +16,4 @@ export type Schema0 =
       },
     ];
 
-export type SemiRuleOptions = [Schema0?];
+export type SemiRuleOptions = Schema0;

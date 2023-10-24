@@ -18,4 +18,4 @@ export type Schema0 =
       },
     ];
 
-export type NoExtraParensRuleOptions = [Schema0?];
+export type NoExtraParensRuleOptions = Schema0;

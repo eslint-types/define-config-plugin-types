@@ -21,4 +21,4 @@ export type ValueWithIgnore =
   | 'only-multiline'
   | 'ignore';
 
-export type CommaDangleRuleOptions = [Schema0?];
+export type CommaDangleRuleOptions = Schema0;

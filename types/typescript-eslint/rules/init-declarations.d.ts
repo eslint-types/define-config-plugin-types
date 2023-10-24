@@ -9,4 +9,4 @@ export type Schema0 =
       },
     ];
 
-export type InitDeclarationsRuleOptions = [Schema0?];
+export type InitDeclarationsRuleOptions = Schema0;
