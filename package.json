@@ -2,6 +2,7 @@
   "name": "define-config-plugin-types",
   "version": "1.0.0-alpha.0",
   "description": "Provides several plugin types for eslint-define-config",
+  "private": true,
   "scripts": {
     "clean": "rimraf node_modules",
     "generate:plugin-dts": "tsx scripts/generate-plugin-dts.ts",
