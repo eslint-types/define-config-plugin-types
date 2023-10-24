@@ -95,12 +95,17 @@ for (const workspace of workspaces) {
       }),
     );
 
+    const optionTypes = options.map((_, index) => `Schema${index}?`);
+    const ruleOptionTypeValue = Array.isArray(meta.schema)
+      ? `[${optionTypes.join(', ')}]`
+      : meta.schema
+      ? 'Schema0'
+      : '[]';
+
     await writeFile(
       join(workspaceDirectory, 'rules', `${ruleName}.d.ts`),
       `${options.join('\n')}
-export type ${pascalCase(ruleName)}RuleOptions = [${options
-        .map((_, index) => `Schema${index}?`)
-        .join(', ')}]
+export type ${pascalCase(ruleName)}RuleOptions = ${ruleOptionTypeValue};
 `,
       {
         encoding: 'utf8',

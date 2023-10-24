@@ -443,4 +443,4 @@ export interface MatchRegexConfig {
   regex: string;
 }
 
-export type NamingConventionRuleOptions = [Schema0?];
+export type NamingConventionRuleOptions = Schema0;

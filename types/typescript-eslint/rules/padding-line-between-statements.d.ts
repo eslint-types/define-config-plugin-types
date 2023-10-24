@@ -134,4 +134,4 @@ export type Schema0 = Array<{
   next: StatementType;
 }>;
 
-export type PaddingLineBetweenStatementsRuleOptions = [Schema0?];
+export type PaddingLineBetweenStatementsRuleOptions = Schema0;
