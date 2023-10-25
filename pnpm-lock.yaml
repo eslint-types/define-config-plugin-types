@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@eslint-types/prettier':
+        specifier: workspace:~
+        version: link:types/prettier
       '@eslint-types/typescript-eslint':
         specifier: workspace:~
         version: link:types/typescript-eslint
