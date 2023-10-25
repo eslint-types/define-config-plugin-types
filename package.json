@@ -1,6 +1,6 @@
 {
   "name": "define-config-plugin-types",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "Provides several plugin types for eslint-define-config",
   "private": true,
   "scripts": {
@@ -18,7 +18,7 @@
     "@eslint-types/typescript-eslint": "workspace:~",
     "@types/eslint": "~8.44.6",
     "@types/json-schema": "~7.0.14",
-    "@types/node": "~20.8.8",
+    "@types/node": "~20.8.9",
     "@typescript-eslint/eslint-plugin": "~6.9.0",
     "@typescript-eslint/parser": "~6.9.0",
     "change-case": "~5.1.2",

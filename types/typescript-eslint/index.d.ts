@@ -30,6 +30,7 @@ import type { KeySpacingRuleOptions } from './rules/key-spacing';
 import type { KeywordSpacingRuleOptions } from './rules/keyword-spacing';
 import type { LinesAroundCommentRuleOptions } from './rules/lines-around-comment';
 import type { LinesBetweenClassMembersRuleOptions } from './rules/lines-between-class-members';
+import type { MaxParamsRuleOptions } from './rules/max-params';
 import type { MemberDelimiterStyleRuleOptions } from './rules/member-delimiter-style';
 import type { MemberOrderingRuleOptions } from './rules/member-ordering';
 import type { MethodSignatureStyleRuleOptions } from './rules/method-signature-style';
@@ -335,6 +336,12 @@ declare module 'eslint-define-config' {
      * @see [lines-between-class-members](https://typescript-eslint.io/rules/lines-between-class-members)
      */
     '@typescript-eslint/lines-between-class-members': LinesBetweenClassMembersRuleOptions;
+    /**
+     * Enforce a maximum number of parameters in function definitions
+     *
+     * @see [max-params](https://typescript-eslint.io/rules/max-params)
+     */
+    '@typescript-eslint/max-params': MaxParamsRuleOptions;
     /**
      * Require a specific member delimiter style for interfaces and type literals
      *

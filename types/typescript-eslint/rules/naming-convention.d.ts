@@ -54,6 +54,7 @@ export type Schema0 = Array<
         | 'typeAlias'
         | 'enum'
         | 'typeParameter'
+        | 'import'
       >;
       modifiers?: Array<
         | 'const'
@@ -71,6 +72,8 @@ export type Schema0 = Array<
         | 'requiresQuotes'
         | 'override'
         | 'async'
+        | 'default'
+        | 'namespace'
       >;
       types?: TypeModifiers[];
     }
@@ -100,6 +103,8 @@ export type Schema0 = Array<
         | 'requiresQuotes'
         | 'override'
         | 'async'
+        | 'default'
+        | 'namespace'
       >;
     }
   | {
@@ -435,6 +440,18 @@ export type Schema0 = Array<
       filter?: string | MatchRegexConfig;
       selector: 'typeParameter';
       modifiers?: Array<'unused'>;
+    }
+  | {
+      format: FormatOptionsConfig;
+      custom?: MatchRegexConfig;
+      leadingUnderscore?: UnderscoreOptions;
+      trailingUnderscore?: UnderscoreOptions;
+      prefix?: PrefixSuffixConfig;
+      suffix?: PrefixSuffixConfig;
+      failureMessage?: string;
+      filter?: string | MatchRegexConfig;
+      selector: 'import';
+      modifiers?: Array<'default' | 'namespace'>;
     }
 >;
 
