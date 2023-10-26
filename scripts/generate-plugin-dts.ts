@@ -48,19 +48,22 @@ for (const workspace of workspaces) {
   const pluginPackageJson: IPackageJson = await import(
     join(pluginDirectory, 'package.json')
   );
-  const pluginEntry: string | undefined =
-    pluginPackageJson.main ?? pluginPackageJson.exports?.['.']?.default;
-
-  if (!pluginEntry) {
-    console.warn(`No entry found for ${pluginName}`);
-    continue;
-  }
+  const pluginEntry: string =
+    pluginPackageJson.main ??
+    pluginPackageJson.exports?.['.']?.default ??
+    'index.js';
 
   const importedPluginModule:
     | (ESLint.Plugin & { __esModule: true })
-    | { __esModule: undefined; default: ESLint.Plugin } = await import(
-    join(pluginDirectory, pluginEntry)
+    | { __esModule: undefined; default: ESLint.Plugin }
+    | false = await import(join(pluginDirectory, pluginEntry)).catch(
+    () => false,
   );
+
+  if (!importedPluginModule) {
+    console.warn(`No entry found for ${pluginName}`);
+    continue;
+  }
 
   const pluginModule = importedPluginModule.__esModule
     ? importedPluginModule
