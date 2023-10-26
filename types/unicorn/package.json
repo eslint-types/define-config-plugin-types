@@ -1,0 +1,32 @@
+{
+  "name": "@eslint-types/unicorn",
+  "version": "48.0.1",
+  "description": "TypeScript definitions for eslint-define-config",
+  "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/unicorn",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Christopher Quadflieg",
+      "url": "https://github.com/Shinigami92",
+      "githubUsername": "Shinigami92"
+    }
+  ],
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eslint-types/define-config-plugin-types.git",
+    "directory": "types/unicorn"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-plugin-unicorn": "48.0.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./package.json": "./package.json"
+  }
+}
