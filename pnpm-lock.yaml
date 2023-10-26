@@ -14,6 +14,9 @@ importers:
       '@eslint-types/typescript-eslint':
         specifier: workspace:~
         version: link:types/typescript-eslint
+      '@eslint-types/unicorn':
+        specifier: workspace:~
+        version: link:types/unicorn
       '@types/eslint':
         specifier: ~8.44.6
         version: 8.44.6
@@ -107,6 +110,12 @@ importers:
       '@typescript-eslint/eslint-plugin':
         specifier: 6.9.0
         version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
+
+  types/unicorn:
+    devDependencies:
+      eslint-plugin-unicorn:
+        specifier: 48.0.1
+        version: 48.0.1(eslint@8.52.0)
 
 packages:
 
