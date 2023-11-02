@@ -17,6 +17,8 @@
 
 This repository is a monorepo that contains types for [eslint-define-config](https://github.com/eslint-types/eslint-define-config).
 
+[All supported packages](https://npmjs.com/~eslint-types/)
+
 You can install them e.g. via `npm install @eslint-types/import` which will contain types for the `eslint-plugin-import` plugin.  
 Then you can use them in your `.eslintrc.cjs` config like this:
 
