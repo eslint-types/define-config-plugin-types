@@ -1,20 +1,7 @@
-import type { DeprecationRuleOptions } from './rules/deprecation';
+import type { Extends, Plugins, RuleOptions } from './types';
 
 declare module 'eslint-define-config' {
-  export interface CustomExtends {
-    'plugin:deprecation/recommended': void;
-  }
-
-  export interface CustomPlugins {
-    deprecation: void;
-  }
-
-  export interface CustomRuleOptions {
-    /**
-     * Do not use deprecated APIs.
-     *
-     * @see [deprecation](https://github.com/gund/eslint-plugin-deprecation)
-     */
-    'deprecation/deprecation': DeprecationRuleOptions;
-  }
+  export interface CustomExtends extends Extends {}
+  export interface CustomPlugins extends Plugins {}
+  export interface CustomRuleOptions extends RuleOptions {}
 }
