@@ -124,12 +124,12 @@ export type ${pascalCase(ruleName)}RuleOptions = ${ruleOptionTypeValue};
 
     const documentation: Rule.RuleMetaData['docs'] = meta.docs ?? {};
 
-    ruleDeclarations.push(`/**
-     * ${documentation.description}
-     *
-     * @see [${ruleName}](${documentation.url})
-     */
-    "${pluginPrefix}/${ruleName}": ${pascalCase(ruleName)}RuleOptions;`);
+    ruleDeclarations.push(` /**
+   * ${documentation.description}
+   *
+   * @see [${ruleName}](${documentation.url})
+   */
+  "${pluginPrefix}/${ruleName}": ${pascalCase(ruleName)}RuleOptions;`);
   }
 
   const hasPluginParsers = await stat(join(workspaceDirectory, 'parsers.d.ts'))
@@ -149,44 +149,54 @@ export type ${pascalCase(ruleName)}RuleOptions = ${ruleOptionTypeValue};
     .catch(() => false);
 
   await writeFile(
-    join(workspaceDirectory, 'index.d.ts'),
+    join(workspaceDirectory, 'types.d.ts'),
     `${ruleOptionImports.join('\n')}
-${hasPluginParsers ? `import type { Parsers } "./parsers";` : ''}${
+${hasPluginParsers ? `export type { Parsers } "./parsers";` : ''}${
       hasPluginParserOptions
-        ? `import type { ParserOptions } "./parser-options";`
+        ? `export type { ParserOptions } "./parser-options";`
         : ''
-    }${hasPluginSettings ? `import type { Settings } "./settings";` : ''}
+    }${hasPluginSettings ? `export type { Settings } "./settings";` : ''}
 
-declare module "eslint-define-config" {
-  export interface CustomExtends {
-    ${pluginConfigs
-      .map((config) => `"plugin:${pluginPrefix}/${config}": void;`)
-      .join('\n')}
-  }
+export interface Extends {
+  ${pluginConfigs
+    .map((config) => `"plugin:${pluginPrefix}/${config}": void;`)
+    .join('\n')}
+}
 
-  export interface CustomPlugins {
-    "${pluginPrefix}": void;
-  }
+export interface Plugins {
+  "${pluginPrefix}": void;
+}
 
-  export interface CustomRuleOptions {
-    ${ruleDeclarations.join('\n')}
-  }
+export interface RuleOptions {
+${ruleDeclarations.join('\n')}
+}
+`,
+    {
+      encoding: 'utf8',
+      flag: 'w',
+    },
+  );
 
-  ${
-    hasPluginParsers ? 'export interface CustomParsers extends Parsers {};' : ''
-  }
+  const imports = [
+    'Extends',
+    'Plugins',
+    'RuleOptions',
+    hasPluginParsers ? 'Parsers' : '',
+    hasPluginParserOptions ? 'ParserOptions' : '',
+    hasPluginSettings ? 'Settings' : '',
+  ].filter(Boolean);
 
-  ${
-    hasPluginParserOptions
-      ? 'export interface CustomParserOptions extends ParserOptions {};'
-      : ''
-  }
+  await writeFile(
+    join(workspaceDirectory, 'index.d.ts'),
+    `import type { ${imports.join(', ')} } from "./types";
 
-  ${
-    hasPluginSettings
-      ? 'export interface CustomSettings extends Settings {};'
-      : ''
-  }
+declare module 'eslint-define-config' {
+${imports
+  .map(
+    (importName) =>
+      `  export interface Custom${importName} extends ${importName} {}`,
+  )
+  .join('\n')}
 }
 `,
     {
