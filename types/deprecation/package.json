@@ -1,6 +1,6 @@
 {
   "name": "@eslint-types/deprecation",
-  "version": "2.0.0",
+  "version": "2.0.0-1",
   "description": "TypeScript definitions for eslint-define-config",
   "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/deprecation",
   "license": "MIT",
