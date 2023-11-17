@@ -87,6 +87,7 @@ import type { NoUnsafeDeclarationMergingRuleOptions } from './rules/no-unsafe-de
 import type { NoUnsafeEnumComparisonRuleOptions } from './rules/no-unsafe-enum-comparison';
 import type { NoUnsafeMemberAccessRuleOptions } from './rules/no-unsafe-member-access';
 import type { NoUnsafeReturnRuleOptions } from './rules/no-unsafe-return';
+import type { NoUnsafeUnaryMinusRuleOptions } from './rules/no-unsafe-unary-minus';
 import type { NoUnusedExpressionsRuleOptions } from './rules/no-unused-expressions';
 import type { NoUnusedVarsRuleOptions } from './rules/no-unused-vars';
 import type { NoUseBeforeDefineRuleOptions } from './rules/no-use-before-define';
@@ -689,6 +690,12 @@ export interface RuleOptions {
    * @see [no-unsafe-return](https://typescript-eslint.io/rules/no-unsafe-return)
    */
   '@typescript-eslint/no-unsafe-return': NoUnsafeReturnRuleOptions;
+  /**
+   * Require unary negation to take a number
+   *
+   * @see [no-unsafe-unary-minus](https://typescript-eslint.io/rules/no-unsafe-unary-minus)
+   */
+  '@typescript-eslint/no-unsafe-unary-minus': NoUnsafeUnaryMinusRuleOptions;
   /**
    * Disallow unused expressions
    *
