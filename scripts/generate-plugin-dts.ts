@@ -102,8 +102,8 @@ for (const workspace of workspaces) {
     const ruleOptionTypeValue = Array.isArray(meta.schema)
       ? `[${optionTypes.join(', ')}]`
       : meta.schema
-      ? 'Schema0'
-      : '[]';
+        ? 'Schema0'
+        : '[]';
 
     await writeFile(
       join(workspaceDirectory, 'rules', `${ruleName}.d.ts`),
