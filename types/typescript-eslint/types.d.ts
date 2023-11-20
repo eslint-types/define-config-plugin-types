@@ -937,7 +937,7 @@ export interface RuleOptions {
    */
   '@typescript-eslint/strict-boolean-expressions': StrictBooleanExpressionsRuleOptions;
   /**
-   * Require switch-case statements to be exhaustive with union type
+   * Require switch-case statements to be exhaustive
    *
    * @see [switch-exhaustiveness-check](https://typescript-eslint.io/rules/switch-exhaustiveness-check)
    */

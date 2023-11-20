@@ -1,6 +1,6 @@
 {
   "name": "@eslint-types/typescript-eslint",
-  "version": "6.11.0",
+  "version": "6.12.0",
   "description": "TypeScript definitions for eslint-define-config",
   "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/typescript-eslint",
   "license": "MIT",
