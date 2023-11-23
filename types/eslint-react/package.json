@@ -1,0 +1,35 @@
+{
+  "name": "@eslint-types/eslint-react",
+  "version": "6.12.0",
+  "description": "TypeScript definitions for eslint-define-config",
+  "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/eslint-react",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Stephen Zhou",
+      "url": "https://github.com/hyoban",
+      "githubUsername": "hyoban"
+    }
+  ],
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eslint-types/define-config-plugin-types.git",
+    "directory": "types/eslint-react"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint-react/eslint-plugin": "0.8.9-beta.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./types": {
+      "types": "./types.d.ts"
+    },
+    "./package.json": "./package.json"
+  }
+}
