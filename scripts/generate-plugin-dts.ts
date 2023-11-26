@@ -105,13 +105,6 @@ for (const workspace of workspaces) {
         ? 'Schema0'
         : '[]';
 
-    if (ruleName.includes('/')) {
-      const category = ruleName.split('/')[0]!;
-      await mkdir(join(workspaceDirectory, 'rules', category), {
-        recursive: true,
-      });
-    }
-
     await writeFile(
       join(workspaceDirectory, 'rules', `${ruleName}.d.ts`),
       `${options.join('\n')}
