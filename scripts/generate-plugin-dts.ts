@@ -151,11 +151,11 @@ export type ${pascalCase(ruleName)}RuleOptions = ${ruleOptionTypeValue};
   await writeFile(
     join(workspaceDirectory, 'types.d.ts'),
     `${ruleOptionImports.join('\n')}
-${hasPluginParsers ? `export type { Parsers } "./parsers";` : ''}${
+${hasPluginParsers ? `export type { Parsers } from "./parsers";` : ''}${
       hasPluginParserOptions
-        ? `export type { ParserOptions } "./parser-options";`
+        ? `export type { ParserOptions } from "./parser-options";`
         : ''
-    }${hasPluginSettings ? `export type { Settings } "./settings";` : ''}
+    }${hasPluginSettings ? `export type { Settings } from "./settings";` : ''}
 
 export interface Extends {
   ${pluginConfigs
