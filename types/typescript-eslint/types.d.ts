@@ -93,6 +93,7 @@ import type { NoUnusedVarsRuleOptions } from './rules/no-unused-vars';
 import type { NoUseBeforeDefineRuleOptions } from './rules/no-use-before-define';
 import type { NoUselessConstructorRuleOptions } from './rules/no-useless-constructor';
 import type { NoUselessEmptyExportRuleOptions } from './rules/no-useless-empty-export';
+import type { NoUselessTemplateLiteralsRuleOptions } from './rules/no-useless-template-literals';
 import type { NoVarRequiresRuleOptions } from './rules/no-var-requires';
 import type { NonNullableTypeAssertionStyleRuleOptions } from './rules/non-nullable-type-assertion-style';
 import type { ObjectCurlySpacingRuleOptions } from './rules/object-curly-spacing';
@@ -727,6 +728,12 @@ export interface RuleOptions {
    */
   '@typescript-eslint/no-useless-empty-export': NoUselessEmptyExportRuleOptions;
   /**
+   * Disallow unnecessary template literals
+   *
+   * @see [no-useless-template-literals](https://typescript-eslint.io/rules/no-useless-template-literals)
+   */
+  '@typescript-eslint/no-useless-template-literals': NoUselessTemplateLiteralsRuleOptions;
+  /**
    * Disallow `require` statements except in import statements
    *
    * @see [no-var-requires](https://typescript-eslint.io/rules/no-var-requires)
@@ -871,7 +878,7 @@ export interface RuleOptions {
    */
   '@typescript-eslint/quotes': QuotesRuleOptions;
   /**
-   * Require `Array#sort` calls to always provide a `compareFunction`
+   * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`
    *
    * @see [require-array-sort-compare](https://typescript-eslint.io/rules/require-array-sort-compare)
    */
