@@ -21,7 +21,7 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "eslint-plugin-jsdoc": "47.0.2"
+    "eslint-plugin-jsdoc": "48.0.2"
   },
   "exports": {
     ".": {
