@@ -1,6 +1,6 @@
 {
   "name": "@eslint-types/prettier",
-  "version": "5.1.2",
+  "version": "5.1.3",
   "description": "TypeScript definitions for eslint-define-config",
   "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/prettier",
   "license": "MIT",
@@ -21,7 +21,7 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "eslint-plugin-prettier": "5.1.2"
+    "eslint-plugin-prettier": "5.1.3"
   },
   "exports": {
     ".": {
