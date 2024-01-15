@@ -1,0 +1,35 @@
+{
+  "name": "@eslint-types/i",
+  "version": "2.29.1",
+  "description": "TypeScript definitions for eslint-define-config",
+  "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/i",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Christopher Quadflieg",
+      "url": "https://github.com/Shinigami92",
+      "githubUsername": "Shinigami92"
+    }
+  ],
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eslint-types/define-config-plugin-types.git",
+    "directory": "types/i"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-plugin-i": "2.29.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./types": {
+      "types": "./types.d.ts"
+    },
+    "./package.json": "./package.json"
+  }
+}
