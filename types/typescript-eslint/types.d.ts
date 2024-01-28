@@ -34,6 +34,7 @@ import type { MemberOrderingRuleOptions } from './rules/member-ordering';
 import type { MethodSignatureStyleRuleOptions } from './rules/method-signature-style';
 import type { NamingConventionRuleOptions } from './rules/naming-convention';
 import type { NoArrayConstructorRuleOptions } from './rules/no-array-constructor';
+import type { NoArrayDeleteRuleOptions } from './rules/no-array-delete';
 import type { NoBaseToStringRuleOptions } from './rules/no-base-to-string';
 import type { NoConfusingNonNullAssertionRuleOptions } from './rules/no-confusing-non-null-assertion';
 import type { NoConfusingVoidExpressionRuleOptions } from './rules/no-confusing-void-expression';
@@ -109,6 +110,7 @@ import type { PreferLiteralEnumMemberRuleOptions } from './rules/prefer-literal-
 import type { PreferNamespaceKeywordRuleOptions } from './rules/prefer-namespace-keyword';
 import type { PreferNullishCoalescingRuleOptions } from './rules/prefer-nullish-coalescing';
 import type { PreferOptionalChainRuleOptions } from './rules/prefer-optional-chain';
+import type { PreferPromiseRejectErrorsRuleOptions } from './rules/prefer-promise-reject-errors';
 import type { PreferReadonlyRuleOptions } from './rules/prefer-readonly';
 import type { PreferReadonlyParameterTypesRuleOptions } from './rules/prefer-readonly-parameter-types';
 import type { PreferReduceTypeParameterRuleOptions } from './rules/prefer-reduce-type-parameter';
@@ -373,6 +375,12 @@ export interface RuleOptions {
    * @see [no-array-constructor](https://typescript-eslint.io/rules/no-array-constructor)
    */
   '@typescript-eslint/no-array-constructor': NoArrayConstructorRuleOptions;
+  /**
+   * Disallow using the `delete` operator on array values
+   *
+   * @see [no-array-delete](https://typescript-eslint.io/rules/no-array-delete)
+   */
+  '@typescript-eslint/no-array-delete': NoArrayDeleteRuleOptions;
   /**
    * Require `.toString()` to only be called on objects which provide useful information when stringified
    *
@@ -823,6 +831,12 @@ export interface RuleOptions {
    * @see [prefer-optional-chain](https://typescript-eslint.io/rules/prefer-optional-chain)
    */
   '@typescript-eslint/prefer-optional-chain': PreferOptionalChainRuleOptions;
+  /**
+   * Require using Error objects as Promise rejection reasons
+   *
+   * @see [prefer-promise-reject-errors](https://typescript-eslint.io/rules/prefer-promise-reject-errors)
+   */
+  '@typescript-eslint/prefer-promise-reject-errors': PreferPromiseRejectErrorsRuleOptions;
   /**
    * Require private members to be marked as `readonly` if they're never modified outside of the constructor
    *
