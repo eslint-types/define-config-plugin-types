@@ -8,7 +8,7 @@ export interface Schema0 {
    */
   enforceForClassFields?: boolean;
   /**
-   * Ingore members marked with the `override` modifier
+   * Ignore members marked with the `override` modifier
    */
   ignoreOverrideMethods?: boolean;
   /**

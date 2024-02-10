@@ -103,6 +103,7 @@ import type { ParameterPropertiesRuleOptions } from './rules/parameter-propertie
 import type { PreferAsConstRuleOptions } from './rules/prefer-as-const';
 import type { PreferDestructuringRuleOptions } from './rules/prefer-destructuring';
 import type { PreferEnumInitializersRuleOptions } from './rules/prefer-enum-initializers';
+import type { PreferFindRuleOptions } from './rules/prefer-find';
 import type { PreferForOfRuleOptions } from './rules/prefer-for-of';
 import type { PreferFunctionTypeRuleOptions } from './rules/prefer-function-type';
 import type { PreferIncludesRuleOptions } from './rules/prefer-includes';
@@ -789,6 +790,12 @@ export interface RuleOptions {
    * @see [prefer-enum-initializers](https://typescript-eslint.io/rules/prefer-enum-initializers)
    */
   '@typescript-eslint/prefer-enum-initializers': PreferEnumInitializersRuleOptions;
+  /**
+   * Enforce the use of Array.prototype.find() over Array.prototype.filter() followed by [0] when looking for a single result
+   *
+   * @see [prefer-find](https://typescript-eslint.io/rules/prefer-find)
+   */
+  '@typescript-eslint/prefer-find': PreferFindRuleOptions;
   /**
    * Enforce the use of `for-of` loop over the standard `for` loop where possible
    *

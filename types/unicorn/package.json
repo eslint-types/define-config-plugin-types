@@ -1,6 +1,6 @@
 {
   "name": "@eslint-types/unicorn",
-  "version": "50.0.1",
+  "version": "51.0.1",
   "description": "TypeScript definitions for eslint-define-config",
   "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/unicorn",
   "license": "MIT",
@@ -21,7 +21,7 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "eslint-plugin-unicorn": "50.0.1"
+    "eslint-plugin-unicorn": "51.0.1"
   },
   "exports": {
     ".": {
