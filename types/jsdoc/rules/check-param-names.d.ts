@@ -4,6 +4,7 @@ export interface Schema0 {
   checkRestProperty?: boolean;
   checkTypesPattern?: string;
   disableExtraPropertyReporting?: boolean;
+  disableMissingParamChecks?: boolean;
   enableFixer?: boolean;
   useDefaultObjectProperties?: boolean;
 }
