@@ -4,7 +4,7 @@
   "description": "Provides several plugin types for eslint-define-config",
   "private": true,
   "scripts": {
-    "clean": "rimraf node_modules",
+    "clean": "tsx scripts/clean.ts",
     "generate:plugin-dts": "tsx scripts/generate-plugin-dts.ts",
     "format": "prettier --cache --write .",
     "lint:fix": "eslint --cache --cache-strategy content --report-unused-disable-directives --fix .",
@@ -18,11 +18,11 @@
     "@eslint-types/prettier": "workspace:~",
     "@eslint-types/typescript-eslint": "workspace:~",
     "@eslint-types/unicorn": "workspace:~",
-    "@types/eslint": "~8.56.3",
+    "@types/eslint": "~8.56.5",
     "@types/json-schema": "~7.0.15",
-    "@types/node": "~20.11.20",
-    "@typescript-eslint/eslint-plugin": "~7.0.2",
-    "@typescript-eslint/parser": "~7.0.2",
+    "@types/node": "~20.11.28",
+    "@typescript-eslint/eslint-plugin": "~7.2.0",
+    "@typescript-eslint/parser": "~7.2.0",
     "change-case": "~5.4.3",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "~9.1.0",
@@ -38,9 +38,9 @@
     "prettier-plugin-organize-imports": "~3.2.4",
     "rimraf": "~5.0.5",
     "tsx": "~4.7.1",
-    "typescript": "~5.3.3"
+    "typescript": "~5.4.2"
   },
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0",

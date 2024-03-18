@@ -37,11 +37,12 @@ export type Schema0 = Array<
         | 'typeLike'
         | 'method'
         | 'property'
+        | 'accessor'
         | 'variable'
         | 'function'
         | 'parameter'
         | 'parameterProperty'
-        | 'accessor'
+        | 'classicAccessor'
         | 'enumMember'
         | 'classMethod'
         | 'objectLiteralMethod'
@@ -49,6 +50,7 @@ export type Schema0 = Array<
         | 'classProperty'
         | 'objectLiteralProperty'
         | 'typeProperty'
+        | 'autoAccessor'
         | 'class'
         | 'interface'
         | 'typeAlias'
@@ -335,6 +337,48 @@ export type Schema0 = Array<
         | 'override'
         | 'async'
       >;
+    }
+  | {
+      format: FormatOptionsConfig;
+      custom?: MatchRegexConfig;
+      leadingUnderscore?: UnderscoreOptions;
+      trailingUnderscore?: UnderscoreOptions;
+      prefix?: PrefixSuffixConfig;
+      suffix?: PrefixSuffixConfig;
+      failureMessage?: string;
+      filter?: string | MatchRegexConfig;
+      selector: 'classicAccessor';
+      modifiers?: Array<
+        | 'abstract'
+        | 'private'
+        | 'protected'
+        | 'public'
+        | 'requiresQuotes'
+        | 'static'
+        | 'override'
+      >;
+      types?: TypeModifiers[];
+    }
+  | {
+      format: FormatOptionsConfig;
+      custom?: MatchRegexConfig;
+      leadingUnderscore?: UnderscoreOptions;
+      trailingUnderscore?: UnderscoreOptions;
+      prefix?: PrefixSuffixConfig;
+      suffix?: PrefixSuffixConfig;
+      failureMessage?: string;
+      filter?: string | MatchRegexConfig;
+      selector: 'autoAccessor';
+      modifiers?: Array<
+        | 'abstract'
+        | 'private'
+        | 'protected'
+        | 'public'
+        | 'requiresQuotes'
+        | 'static'
+        | 'override'
+      >;
+      types?: TypeModifiers[];
     }
   | {
       format: FormatOptionsConfig;

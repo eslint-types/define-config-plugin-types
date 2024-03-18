@@ -12,6 +12,7 @@ import type { CommaDangleRuleOptions } from './rules/comma-dangle';
 import type { CommaSpacingRuleOptions } from './rules/comma-spacing';
 import type { ConsistentGenericConstructorsRuleOptions } from './rules/consistent-generic-constructors';
 import type { ConsistentIndexedObjectStyleRuleOptions } from './rules/consistent-indexed-object-style';
+import type { ConsistentReturnRuleOptions } from './rules/consistent-return';
 import type { ConsistentTypeAssertionsRuleOptions } from './rules/consistent-type-assertions';
 import type { ConsistentTypeDefinitionsRuleOptions } from './rules/consistent-type-definitions';
 import type { ConsistentTypeExportsRuleOptions } from './rules/consistent-type-exports';
@@ -149,10 +150,13 @@ export interface Extends {
   'plugin:@typescript-eslint/recommended': void;
   'plugin:@typescript-eslint/recommended-requiring-type-checking': void;
   'plugin:@typescript-eslint/recommended-type-checked': void;
+  'plugin:@typescript-eslint/recommended-type-checked-only': void;
   'plugin:@typescript-eslint/strict': void;
   'plugin:@typescript-eslint/strict-type-checked': void;
+  'plugin:@typescript-eslint/strict-type-checked-only': void;
   'plugin:@typescript-eslint/stylistic': void;
   'plugin:@typescript-eslint/stylistic-type-checked': void;
+  'plugin:@typescript-eslint/stylistic-type-checked-only': void;
 }
 
 export interface Plugins {
@@ -244,6 +248,12 @@ export interface RuleOptions {
    * @see [consistent-indexed-object-style](https://typescript-eslint.io/rules/consistent-indexed-object-style)
    */
   '@typescript-eslint/consistent-indexed-object-style': ConsistentIndexedObjectStyleRuleOptions;
+  /**
+   * Require `return` statements to either always or never specify values
+   *
+   * @see [consistent-return](https://typescript-eslint.io/rules/consistent-return)
+   */
+  '@typescript-eslint/consistent-return': ConsistentReturnRuleOptions;
   /**
    * Enforce consistent usage of type assertions
    *

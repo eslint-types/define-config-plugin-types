@@ -1,6 +1,6 @@
 {
   "name": "@eslint-types/jsdoc",
-  "version": "48.2.0",
+  "version": "48.2.1",
   "description": "TypeScript definitions for eslint-define-config",
   "homepage": "https://github.com/eslint-types/define-config-plugin-types/tree/main/types/jsdoc",
   "license": "MIT",
@@ -21,7 +21,7 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "eslint-plugin-jsdoc": "48.2.0"
+    "eslint-plugin-jsdoc": "48.2.1"
   },
   "exports": {
     ".": {

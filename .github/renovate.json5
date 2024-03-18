@@ -1,8 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "schedule:nonOfficeHours", "group:allNonMajor"],
-  "timezone": "Europe/Berlin",
+  "extends": [
+    "config:base",
+    "schedule:earlyMondays",
+    "group:allNonMajor",
+    ":prHourlyLimitNone",
+    "helpers:pinGitHubActionDigests"
+  ],
   "labels": ["dependencies"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "reviewersFromCodeOwners": true,
   "rangeStrategy": "bump",
   "packageRules": [
@@ -32,7 +40,7 @@
     },
     {
       "groupName": "prettier",
-      "matchPackageNames": ["@types/prettier", "prettier"]
+      "matchPackageNames": ["prettier"]
     },
     {
       "groupName": "typescript",
