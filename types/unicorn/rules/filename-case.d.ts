@@ -2,6 +2,7 @@ export type Schema0 =
   | {
       case?: 'camelCase' | 'snakeCase' | 'kebabCase' | 'pascalCase';
       ignore?: unknown[];
+      multipleFileExtensions?: boolean;
     }
   | {
       cases?: {
@@ -11,6 +12,7 @@ export type Schema0 =
         pascalCase?: boolean;
       };
       ignore?: unknown[];
+      multipleFileExtensions?: boolean;
     };
 
 export type FilenameCaseRuleOptions = [Schema0?];

@@ -36,6 +36,16 @@ module.exports = defineConfig({
     'no-else-return': 'error',
     'prefer-template': 'error',
 
+    'unicorn/import-style': [
+      'error',
+      {
+        styles: {
+          'node:path': {
+            named: true,
+          },
+        },
+      },
+    ],
     'unicorn/no-nested-ternary': 'off',
     'unicorn/no-null': 'off',
     'unicorn/number-literal-case': 'off',

@@ -99,6 +99,7 @@ import type { NoUselessTemplateLiteralsRuleOptions } from './rules/no-useless-te
 import type { NoVarRequiresRuleOptions } from './rules/no-var-requires';
 import type { NonNullableTypeAssertionStyleRuleOptions } from './rules/non-nullable-type-assertion-style';
 import type { ObjectCurlySpacingRuleOptions } from './rules/object-curly-spacing';
+import type { OnlyThrowErrorRuleOptions } from './rules/only-throw-error';
 import type { PaddingLineBetweenStatementsRuleOptions } from './rules/padding-line-between-statements';
 import type { ParameterPropertiesRuleOptions } from './rules/parameter-properties';
 import type { PreferAsConstRuleOptions } from './rules/prefer-as-const';
@@ -139,6 +140,7 @@ import type { TypeAnnotationSpacingRuleOptions } from './rules/type-annotation-s
 import type { TypedefRuleOptions } from './rules/typedef';
 import type { UnboundMethodRuleOptions } from './rules/unbound-method';
 import type { UnifiedSignaturesRuleOptions } from './rules/unified-signatures';
+import type { UseUnknownInCatchCallbackVariableRuleOptions } from './rules/use-unknown-in-catch-callback-variable';
 export type { ParserOptions } from './parser-options';
 export type { Parsers } from './parsers';
 
@@ -771,6 +773,12 @@ export interface RuleOptions {
    */
   '@typescript-eslint/object-curly-spacing': ObjectCurlySpacingRuleOptions;
   /**
+   * Disallow throwing non-`Error` values as exceptions
+   *
+   * @see [only-throw-error](https://typescript-eslint.io/rules/only-throw-error)
+   */
+  '@typescript-eslint/only-throw-error': OnlyThrowErrorRuleOptions;
+  /**
    * Require or disallow padding lines between statements
    *
    * @see [padding-line-between-statements](https://typescript-eslint.io/rules/padding-line-between-statements)
@@ -1010,4 +1018,10 @@ export interface RuleOptions {
    * @see [unified-signatures](https://typescript-eslint.io/rules/unified-signatures)
    */
   '@typescript-eslint/unified-signatures': UnifiedSignaturesRuleOptions;
+  /**
+   * Enforce typing arguments in `.catch()` callbacks as `unknown`
+   *
+   * @see [use-unknown-in-catch-callback-variable](https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable)
+   */
+  '@typescript-eslint/use-unknown-in-catch-callback-variable': UseUnknownInCatchCallbackVariableRuleOptions;
 }
